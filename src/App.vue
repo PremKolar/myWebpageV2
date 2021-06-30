@@ -2,7 +2,7 @@
   <h1 style="padding-top: 3em">Nikolaus Koopmann</h1>
   <a
     href="mailto:nikolauskoopmann@gmail.com"
-    style="text-decoration: none; text-decoration-color: #000f32"
+    style="text-decoration: none; color: inherit"
     >nikolauskoopmann@gmail.com</a
   >
   <SlickCV :resume="resume" class="slickcv"></SlickCV>
