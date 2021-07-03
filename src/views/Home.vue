@@ -114,7 +114,7 @@ export default class Home extends Vue {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 40%;
+  opacity: 0.4;
   pointer-events: none;
 }
 
