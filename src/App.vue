@@ -1,10 +1,27 @@
 <template>
-  <!--  <div id="nav">-->
-  <!--    <router-link to="/">Home</router-link>-->
-  <!--    |-->
-  <!--    <router-link to="/about">About</router-link>-->
-  <!--  </div>-->
+  <div class="headerAndFooter header">
+    <router-link to="/" class="headerBlock headerLeft"
+      ><font-awesome-icon :icon="['fas', 'home']"
+    /></router-link>
+
+    <div class="headerBlock name">Nikolaus Koopmann</div>
+    <div class="headerBlock headerRight">
+      <a href="https://www.linkedin.com/in/nikolaus-koopmann-447444107/"
+        ><font-awesome-icon :icon="['fab', 'linkedin']"
+      /></a>
+    </div>
+  </div>
+
   <router-view />
+
+  <div class="headerAndFooter footer">
+    <div class="headerBlock headerLeft">
+      <a href="mailto:nikolauskoopmann@gmail.com"
+        ><font-awesome-icon :icon="['fas', 'envelope']"
+      /></a>
+    </div>
+    <router-link to="cv" class="headerBlock headerRight">cv</router-link>
+  </div>
 </template>
 
 <style lang="scss">
@@ -51,10 +68,45 @@ a {
       format("truetype");
 }
 
-
 @font-face {
   font-family: Montserrat;
   src: local("Montserrat"), url("./assets/fonts/Montserrat-Regular.ttf");
 }
 
+.headerAndFooter {
+  position: absolute;
+  font-family: MoonGlade, PixoReto, Roboto, Lato, Arial, serif;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: x-large;
+  z-index: 1;
+}
+
+.header {
+  padding-top: 0.5em;
+}
+
+.footer {
+  padding-bottom: 0.5em;
+  bottom: 0;
+}
+
+.headerBlock {
+  display: inline-block;
+}
+
+.headerLeft {
+  padding-left: 1em;
+}
+
+.headerRight {
+  padding-right: 1em;
+}
+
+@media all and (max-width: 1000px) {
+  .name {
+    font-size: large;
+  }
+}
 </style>
