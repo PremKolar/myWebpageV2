@@ -1,6 +1,6 @@
 <template>
   <div class="headerAndFooter header">
-    <div class="headerBlock headerLeft" @click="page = 'Home'">
+    <div class="headerBlock headerLeft btn" @click="page = 'Home'">
       <font-awesome-icon :icon="['fas', 'home']" />
     </div>
 
@@ -19,7 +19,7 @@
         ><font-awesome-icon :icon="['fas', 'envelope']"
       /></a>
     </div>
-    <div class="headerBlock headerRight" @click="page = 'CV'">cv</div>
+    <div class="headerBlock headerRight btn" @click="page = 'CV'">cv</div>
   </div>
 </template>
 
@@ -63,6 +63,11 @@ a {
     color: antiquewhite;
   }
 }
+
+.btn {
+  cursor: pointer;
+}
+
 
 .headerAndFooter {
   position: fixed;
