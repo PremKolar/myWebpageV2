@@ -74,7 +74,7 @@ a {
 }
 
 .headerAndFooter {
-  position: absolute;
+  position: fixed;
   font-family: MoonGlade, PixoReto, Roboto, Lato, Arial, serif;
   width: 100%;
   display: flex;
