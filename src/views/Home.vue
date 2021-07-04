@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="content">
+    <div class="content" :style="{ opacity: opacity }" @mousemove="calcOpacity" >
       <img src="@/assets/images/niko.png" />
     </div>
   </div>
@@ -18,9 +18,15 @@ import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 export default class Home extends Vue {
   private showImg = false;
   private windowWidth: number = window.innerWidth;
-
+  private opacity = 0;
   get mobile(): boolean {
     return this.windowWidth < 1000;
+  }
+
+  calcOpacity(event:any) {
+    let x_contribution = Math.sin(event.clientX * Math.PI / window.innerWidth);
+    let y_contribution = Math.sin(event.clientY * Math.PI / window.innerHeight);
+    this.opacity = 0.1 * x_contribution * y_contribution;
   }
 
   created() {
@@ -58,8 +64,8 @@ export default class Home extends Vue {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.4;
-    float: inherit;
+  /*opacity: 0.4;*/
+  float: inherit;
 }
 
 @media all and (max-width: 1000px) {
@@ -67,5 +73,4 @@ export default class Home extends Vue {
     float: right;
   }
 }
-
 </style>
