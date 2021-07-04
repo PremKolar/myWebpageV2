@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <div class="content" :style="{ opacity: opacity }" @mousemove="calcOpacity" >
-      <img src="@/assets/images/niko.png" />
+    <div class="content" :style="{ opacity: opacity }" @mousemove="calcOpacity">
+      <img src="@/assets/images/niko.png" alt="me and iceberg" :class="{driftImg: mobile}" />
     </div>
   </div>
 </template>
@@ -19,13 +19,24 @@ export default class Home extends Vue {
   private showImg = false;
   private windowWidth: number = window.innerWidth;
   private opacity = 0;
+
+  private opacityMobile = 0.3;
+
   get mobile(): boolean {
     return this.windowWidth < 1000;
   }
 
-  calcOpacity(event:any) {
-    let x_contribution = Math.sin(event.clientX * Math.PI / window.innerWidth);
-    let y_contribution = Math.sin(event.clientY * Math.PI / window.innerHeight);
+  calcOpacity(event: { clientX: number; clientY: number }): void {
+    if (this.mobile) {
+      this.opacity = this.opacityMobile;
+      return;
+    }
+    let x_contribution = Math.sin(
+      (event.clientX * Math.PI) / window.innerWidth
+    );
+    let y_contribution = Math.sin(
+      (event.clientY * Math.PI) / window.innerHeight
+    );
     this.opacity = 0.1 * x_contribution * y_contribution;
   }
 
@@ -37,6 +48,7 @@ export default class Home extends Vue {
     this.$nextTick(() => {
       window.addEventListener("resize", this.onResize);
     });
+    if (this.mobile) this.opacity = this.opacityMobile;
   }
 
   beforeDestroy() {
@@ -67,6 +79,23 @@ export default class Home extends Vue {
   /*opacity: 0.4;*/
   float: inherit;
 }
+
+.driftImg {
+  animation: drift 30s;
+}
+
+@keyframes drift {
+  0% {
+    -webkit-transform: translateX(550px);
+    transform: translateX(550px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+
 
 @media all and (max-width: 1000px) {
   .content {
