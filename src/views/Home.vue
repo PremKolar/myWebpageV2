@@ -43,7 +43,7 @@ export default class Home extends Vue {
   }
 }
 </script>
-<style type="text/css">
+<style type="text/css" scoped>
 .home {
   position: fixed;
   top: 0;
