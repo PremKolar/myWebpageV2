@@ -1,8 +1,8 @@
 <template>
   <div class="headerAndFooter header">
-    <router-link to="/" class="headerBlock headerLeft"
-      ><font-awesome-icon :icon="['fas', 'home']"
-    /></router-link>
+    <div class="headerBlock headerLeft" @click="page = 'Home'">
+      <font-awesome-icon :icon="['fas', 'home']" />
+    </div>
 
     <div class="headerBlock name">Nikolaus Koopmann</div>
     <div class="headerBlock headerRight">
@@ -11,18 +11,33 @@
       /></a>
     </div>
   </div>
-
-  <router-view />
-
+  <CV v-if="page === 'CV'"></CV>
+  <Home v-else-if="page === 'Home'"></Home>
   <div class="headerAndFooter footer">
     <div class="headerBlock headerLeft">
       <a href="mailto:nikolauskoopmann@gmail.com"
         ><font-awesome-icon :icon="['fas', 'envelope']"
       /></a>
     </div>
-    <router-link to="cv" class="headerBlock headerRight">cv</router-link>
+    <div class="headerBlock headerRight" @click="page = 'CV'">cv</div>
   </div>
 </template>
+
+<script lang="ts">
+import { Options, Vue } from "vue-class-component";
+import CV from "@/views/CV.vue";
+import Home from "@/views/Home.vue";
+
+@Options({
+  components: {
+    CV,
+    Home,
+  },
+})
+export default class App extends Vue {
+  private page: "Home" | "CV" = "Home";
+}
+</script>
 
 <style lang="scss">
 body {
@@ -47,30 +62,6 @@ a {
   &.router-link-exact-active {
     color: antiquewhite;
   }
-}
-
-@font-face {
-  font-family: "PixoReto";
-  src: local("PixoReto"),
-    url(./assets/fonts/PixoReto/PixoRetoSP-Regular.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "PixoRetoAlt";
-  src: local("PixoRetoAlt"),
-    url("./assets/fonts/PixoRetoAlt/Pixo Reto.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "MoonGlade";
-  src: local("MoonGlade"),
-    url("./assets/fonts/Moonglade/MoongladeDemoBold-jOzM.ttf")
-      format("truetype");
-}
-
-@font-face {
-  font-family: Montserrat;
-  src: local("Montserrat"), url("./assets/fonts/Montserrat-Regular.ttf");
 }
 
 .headerAndFooter {
@@ -108,5 +99,29 @@ a {
   .name {
     font-size: large;
   }
+}
+
+@font-face {
+  font-family: "PixoReto";
+  src: local("PixoReto"),
+    url(./assets/fonts/PixoReto/PixoRetoSP-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "PixoRetoAlt";
+  src: local("PixoRetoAlt"),
+    url("./assets/fonts/PixoRetoAlt/Pixo Reto.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "MoonGlade";
+  src: local("MoonGlade"),
+    url("./assets/fonts/Moonglade/MoongladeDemoBold-jOzM.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: local("Montserrat"), url("./assets/fonts/Montserrat-Regular.ttf");
 }
 </style>
