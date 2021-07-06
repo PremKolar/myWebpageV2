@@ -1,10 +1,12 @@
 <template>
-  <div class="headerAndFooter header">
+  <div
+    class="headerAndFooter header"
+    :class="{ headerAndFooterYmargined: page === 'Home' }"
+  >
     <div class="headerBlock headerLeft btn" @click="page = 'Home'">
-      <font-awesome-icon :icon="['fas', 'home']" />
+      <font-awesome-icon size="lg" :icon="['fas', 'home']" />
     </div>
 
-    <div class="headerBlock name">Nikolaus Koopmann</div>
     <div class="headerBlock headerRight">
       <a href="https://www.linkedin.com/in/nikolaus-koopmann-447444107/"
         ><font-awesome-icon :icon="['fab', 'linkedin']"
@@ -13,13 +15,19 @@
   </div>
   <CV v-if="page === 'CV'"></CV>
   <Home v-else-if="page === 'Home'"></Home>
-  <div class="headerAndFooter footer">
+  <div
+    class="headerAndFooter footer"
+    :class="{ headerAndFooterYmargined: page === 'Home' }"
+  >
     <div class="headerBlock headerLeft">
       <a href="mailto:nikolauskoopmann@gmail.com"
         ><font-awesome-icon :icon="['fas', 'envelope']"
       /></a>
     </div>
-    <div class="headerBlock headerRight btn" @click="page = 'CV'">cv</div>
+    <div v-show="page === 'Home'" class="headerBlock name">
+      Nikolaus Koopmann
+    </div>
+    <div class="headerBlock headerRight btn headerFont" @click="page = 'CV'">cv</div>
   </div>
 </template>
 
@@ -40,6 +48,11 @@ export default class App extends Vue {
 </script>
 
 <style lang="scss">
+:root {
+  --maxwidth: 1600px;
+  --maxheight: 1066px;
+}
+
 body {
   margin: 0;
   //padding: 0;
@@ -68,15 +81,23 @@ a {
   cursor: pointer;
 }
 
-
 .headerAndFooter {
   position: fixed;
-  font-family: MoonGlade, PixoReto, Roboto, Lato, Arial, serif;
+  font-family: Hendrickson, PalmSprings, MoonGlade, PixoReto, Roboto, Lato,
+    Arial, serif;
   width: 100%;
   display: flex;
   justify-content: space-between;
   font-size: x-large;
   z-index: 1;
+  max-width: var(--maxwidth);
+  margin-left: max(0px, calc((100vw - var(--maxwidth)) / 2));
+  margin-right: max(0px, calc((100vw - var(--maxwidth)) / 2));
+}
+
+.headerAndFooterYmargined {
+  margin-top: max(0px, calc((100vh - var(--maxheight)) / 2));
+  margin-bottom: max(0px, calc((100vh - var(--maxheight)) / 2));
 }
 
 .header {
@@ -89,7 +110,8 @@ a {
 }
 
 .headerBlock {
-  display: inline-block;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .headerLeft {
@@ -100,9 +122,19 @@ a {
   padding-right: 1em;
 }
 
+.headerFont {
+  font-family: MoonGlade, PalmSprings, MoonGlade, PixoReto, Roboto, Lato, Arial, serif;
+  padding-bottom: 9px;
+}
+
+
+.name {
+  font-size: 4em;
+}
+
 @media all and (max-width: 1000px) {
   .name {
-    font-size: large;
+    font-size: 2em;
   }
 }
 
@@ -128,5 +160,16 @@ a {
 @font-face {
   font-family: Montserrat;
   src: local("Montserrat"), url("./assets/fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: PalmSprings;
+  src: local("PalmSprings"),
+    url("assets/fonts/PalmspringsPersonalUseRegular-ALqyA.ttf");
+}
+
+@font-face {
+  font-family: Hendrickson;
+  src: local("Hendrickson"), url("assets/fonts/hendrick/Hendrickson-K7GOD.otf");
 }
 </style>

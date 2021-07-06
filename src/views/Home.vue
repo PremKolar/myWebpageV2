@@ -10,6 +10,7 @@
 import { Options, Vue } from "vue-class-component";
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 
+
 @Options({
   components: {
     HelloWorld,
@@ -86,8 +87,8 @@ export default class Home extends Vue {
 
 @keyframes drift {
   0% {
-    -webkit-transform: translateX(550px);
-    transform: translateX(550px);
+    -webkit-transform: translateX(650px);
+    transform: translateX(650px);
   }
   100% {
     -webkit-transform: translateX(0);
