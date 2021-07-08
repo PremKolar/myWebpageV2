@@ -27,7 +27,9 @@
     <div v-show="page === 'Home'" class="headerBlock name">
       Nikolaus Koopmann
     </div>
-    <div class="headerBlock headerRight btn headerFont" @click="page = 'CV'">cv</div>
+    <div class="headerBlock headerRight btn headerFont" @click="page = 'CV'">
+      cv
+    </div>
   </div>
 </template>
 
@@ -91,13 +93,13 @@ a {
   font-size: x-large;
   z-index: 1;
   max-width: var(--maxwidth);
-  margin-left: max(0px, calc(calc((100vw - var(--maxwidth))) / 2));
-  margin-right: max(0px, calc(calc((100vw - var(--maxwidth))) / 2));
+  margin-left: max(0px, calc(100vw / 2 - var(--maxwidth) / 2));
+  margin-right: max(0px, calc(100vw / 2 - var(--maxwidth) / 2));
 }
 
 .headerAndFooterYmargined {
-  margin-top: max(0px, calc(calc((100vh - var(--maxheight))) / 2));
-  margin-bottom: max(0px, calc(calc((100vh - var(--maxheight))) / 2));
+  margin-top: max(0px, calc(100vh / 2 - var(--maxheight) / 2));
+  margin-bottom: max(0px, calc(100vh / 2 - var(--maxheight) / 2));
 }
 
 .header {
@@ -123,10 +125,10 @@ a {
 }
 
 .headerFont {
-  font-family: MoonGlade, PalmSprings, MoonGlade, PixoReto, Roboto, Lato, Arial, serif;
+  font-family: MoonGlade, PalmSprings, MoonGlade, PixoReto, Roboto, Lato, Arial,
+    serif;
   padding-bottom: 9px;
 }
-
 
 .name {
   font-size: 4em;
