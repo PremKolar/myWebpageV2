@@ -52,6 +52,7 @@ export default class App extends Vue {
 <style lang="scss">
 :root {
   --maxwidth: 1600px;
+  --maxwidthHalf: 800px;
   --maxheight: 1066px;
 }
 
@@ -93,13 +94,13 @@ a {
   font-size: x-large;
   z-index: 1;
   max-width: var(--maxwidth);
-  margin-left: max(0px, calc(100vw / 2 - var(--maxwidth) / 2));
-  margin-right: max(0px, calc(100vw / 2 - var(--maxwidth) / 2));
+  margin-left: max(0px, calc(50vw - var(--maxwidthHalf)));
+  margin-right: max(0px, calc(50vw - var(--maxwidthHalf)));
 }
 
 .headerAndFooterYmargined {
-  margin-top: max(0px, calc(100vh / 2 - var(--maxheight) / 2));
-  margin-bottom: max(0px, calc(100vh / 2 - var(--maxheight) / 2));
+  margin-top: max(0px, calc((100vh - var(--maxheight)) / 2));
+  margin-bottom: max(0px, calc((100vh - var(--maxheight)) / 2));
 }
 
 .header {
