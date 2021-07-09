@@ -16,8 +16,6 @@
   <CV v-if="page === 'CV'"></CV>
   <Home v-else-if="page === 'Home'"></Home>
 
-
-
   <div
     class="headerAndFooter footer"
     :class="{ headerAndFooterYmargined: page === 'Home' }"
