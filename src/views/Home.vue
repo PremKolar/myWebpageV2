@@ -1,7 +1,28 @@
 <template>
   <div class="home">
+    <!--   Baustelle -->
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      "
+    >
+      <div style="font-size: xx-large">Under Construction</div>
+      <div style="font-size: large">(rebuilding the enitre site)</div>
+    </div>
+    <!--    -->
+
     <div class="content" :style="{ opacity: opacity }" @mousemove="calcOpacity">
-      <img src="@/assets/images/niko.png" alt="me and iceberg" :class="{driftImg: mobile}" />
+      <img
+        src="@/assets/images/niko.png"
+        alt="me and iceberg"
+        :class="{ driftImg: mobile }"
+      />
     </div>
   </div>
 </template>
@@ -9,7 +30,6 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-
 
 @Options({
   components: {
@@ -95,8 +115,6 @@ export default class Home extends Vue {
     transform: translateX(0);
   }
 }
-
-
 
 @media all and (max-width: 1000px) {
   .content {
