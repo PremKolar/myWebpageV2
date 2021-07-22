@@ -13,7 +13,7 @@
       "
     >
       <div style="font-size: xx-large">Under Construction</div>
-      <div style="font-size: large">(rebuilding the enitre site)</div>
+      <div style="font-size: large">(rebuilding the entire site)</div>
     </div>
     <!--    -->
 
