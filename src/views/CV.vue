@@ -34,12 +34,14 @@ export default class CV extends Vue {
   background-image: linear-gradient(
     /*#ffba44,*/
     /*#c3ff61,*/
-    #9de0ad,
+    #000000,
+    #594f4f,
     #45ada8,
     #547980,
     #594f4f,
     #000f32
   );
+  max-width: 100vw;
 }
 
 

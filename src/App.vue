@@ -1,34 +1,47 @@
 <template>
+  <div>
   <div
     class="headerAndFooter header"
     :class="{ headerAndFooterYmargined: page === 'Home' }"
   >
     <div class="headerBlock headerLeft btn" @click="page = 'Home'">
-      <font-awesome-icon size="lg" :icon="['fas', 'home']" />
-    </div>
-
-    <div class="headerBlock headerRight">
-      <a href="https://www.linkedin.com/in/nikolaus-koopmann-447444107/"
-        ><font-awesome-icon :icon="['fab', 'linkedin']"
-      /></a>
-    </div>
-  </div>
-  <CV v-if="page === 'CV'"></CV>
-  <Home v-else-if="page === 'Home'"></Home>
-
-  <div
-    class="headerAndFooter footer"
-    :class="{ headerAndFooterYmargined: page === 'Home' }"
-  >
-    <div class="headerBlock headerLeft">
+<!--      <font-awesome-icon size="lg" :icon="['fas', 'home']" />-->
       <a href="mailto:nikolauskoopmann@gmail.com"
-        ><font-awesome-icon :icon="['fas', 'envelope']"
-      /></a>
+      >
+        <font-awesome-icon :icon="['fas', 'envelope']"
+        />
+      </a>
     </div>
+
+<!--    <div class="headerBlock headerLeft">-->
+<!--      <a href="mailto:nikolauskoopmann@gmail.com"-->
+<!--      >-->
+<!--        <font-awesome-icon :icon="['fas', 'envelope']"-->
+<!--        />-->
+<!--      </a>-->
+<!--    </div>-->
     <div v-show="page === 'Home'" class="headerBlock name">
       Nikolaus Koopmann
     </div>
-    <div class="headerBlock headerRight btn headerFont" @click="page = 'CV'">cv</div>
+<!--    <div class="headerBlock headerRight btn headerFont" @click="page = 'CV'">cv</div>-->
+
+    <div class="headerBlock headerRight">
+      <a href="https://www.linkedin.com/in/nikolaus-koopmann-447444107/"
+      >
+        <font-awesome-icon :icon="['fab', 'linkedin']"
+        />
+      </a>
+    </div>
+  </div>
+  <Home></Home>
+
+<!--  <div-->
+<!--    class="headerAndFooter footer"-->
+<!--    :class="{ headerAndFooterYmargined: page === 'Home' }"-->
+<!--  >-->
+
+<!--  </div>-->
+    <CV></CV>
   </div>
 </template>
 
@@ -40,8 +53,8 @@ import Home from "@/views/Home.vue";
 @Options({
   components: {
     CV,
-    Home,
-  },
+    Home
+  }
 })
 export default class App extends Vue {
   private page: "Home" | "CV" = "Home";
@@ -50,7 +63,7 @@ export default class App extends Vue {
 
 <style lang="scss">
 :root {
-  --maxwidth: 1600px;
+  --maxwidth: 1500px;
   --maxheight: 1066px;
 }
 
@@ -58,6 +71,7 @@ body {
   margin: 0;
   //padding: 0;
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -73,6 +87,7 @@ a {
   font-weight: bold;
   color: beige;
   text-decoration: none;
+
   &.router-link-exact-active {
     color: antiquewhite;
   }
@@ -83,9 +98,9 @@ a {
 }
 
 .headerAndFooter {
-  position: fixed;
+  position: absolute;
   font-family: Hendrickson, PalmSprings, MoonGlade, PixoReto, Roboto, Lato,
-    Arial, serif;
+  Arial, serif;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -97,8 +112,8 @@ a {
 }
 
 .headerAndFooterYmargined {
-  margin-top: max(1px, calc((100vh - var(--maxheight)) / 2));
-  margin-bottom: max(1px, calc((100vh - var(--maxheight)) / 2));
+  //margin-top: max(1px, calc((100vh - var(--maxheight)) / 2));
+  //margin-bottom: max(10px, calc((100vh - var(--maxheight)) / 2));
 }
 
 .header {
@@ -112,7 +127,8 @@ a {
 
 .headerBlock {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .headerLeft {
@@ -142,20 +158,19 @@ a {
 @font-face {
   font-family: "PixoReto";
   src: local("PixoReto"),
-    url(./assets/fonts/PixoReto/PixoRetoSP-Regular.ttf) format("truetype");
+  url(./assets/fonts/PixoReto/PixoRetoSP-Regular.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "PixoRetoAlt";
   src: local("PixoRetoAlt"),
-    url("./assets/fonts/PixoRetoAlt/Pixo Reto.ttf") format("truetype");
+  url("./assets/fonts/PixoRetoAlt/Pixo Reto.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "MoonGlade";
   src: local("MoonGlade"),
-    url("./assets/fonts/Moonglade/MoongladeDemoBold-jOzM.ttf")
-      format("truetype");
+  url("./assets/fonts/Moonglade/MoongladeDemoBold-jOzM.ttf") format("truetype");
 }
 
 @font-face {
@@ -166,7 +181,7 @@ a {
 @font-face {
   font-family: PalmSprings;
   src: local("PalmSprings"),
-    url("assets/fonts/PalmspringsPersonalUseRegular-ALqyA.ttf");
+  url("assets/fonts/PalmspringsPersonalUseRegular-ALqyA.ttf");
 }
 
 @font-face {

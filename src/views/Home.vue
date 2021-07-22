@@ -19,7 +19,8 @@
 
     <div class="content" :style="{ opacity: opacity }" @mousemove="calcOpacity">
       <img
-        src="@/assets/images/niko.png"
+        class="image"
+        src="@/assets/images/goldenIndo.jpg"
         alt="me and iceberg"
         :class="{ driftImg: mobile }"
       />
@@ -84,12 +85,15 @@ export default class Home extends Vue {
 </script>
 <style type="text/css" scoped>
 .home {
-  position: fixed;
+  /*position: fixed;*/
+  height: 100vh;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: black;
+  max-width: 100vw;
+  overflow: hidden;
 }
 
 .content {
@@ -99,6 +103,7 @@ export default class Home extends Vue {
   justify-content: center;
   /*opacity: 0.4;*/
   float: inherit;
+  overflow: hidden;
 }
 
 .driftImg {
@@ -120,5 +125,11 @@ export default class Home extends Vue {
   .content {
     float: right;
   }
+}
+
+.image {
+  /*object-fit: scale-down;*/
+  /*width: 100vw;*/
+  overflow: hidden;
 }
 </style>
