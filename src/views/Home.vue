@@ -1,21 +1,25 @@
 <template>
   <div class="home">
+
+
     <!--   Baustelle -->
-    <div
-      style="
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-      "
-    >
-      <div style="font-size: xx-large">Under Construction</div>
-      <div style="font-size: large">(rebuilding the entire site)</div>
-    </div>
+<!--    <div-->
+<!--      style="-->
+<!--        display: flex;-->
+<!--        flex-direction: column;-->
+<!--        justify-content: center;-->
+<!--        align-items: center;-->
+<!--        width: 100%;-->
+<!--        height: 100%;-->
+<!--        position: absolute;-->
+<!--      "-->
+<!--    >-->
+<!--      <div style="font-size: xx-large">Under Construction</div>-->
+<!--      <div style="font-size: large">(rebuilding the entire site)</div>-->
+<!--    </div>-->
     <!--    -->
+
+
 
     <div class="content" :style="{ opacity: opacity }" @mousemove="calcOpacity">
       <img
@@ -41,7 +45,7 @@ export default class Home extends Vue {
   private showImg = false;
   private windowWidth: number = window.innerWidth;
   private opacity = 0;
-
+  private maxOpacity = 0.5;
   private opacityMobile = 0.3;
 
   get mobile(): boolean {
@@ -57,9 +61,9 @@ export default class Home extends Vue {
       (event.clientX * Math.PI) / window.innerWidth
     );
     let y_contribution = Math.sin(
-      (event.clientY * Math.PI) / window.innerHeight
+      ((event.clientY + window.scrollY) * Math.PI) / window.innerHeight
     );
-    this.opacity = 0.1 * x_contribution * y_contribution;
+    this.opacity = this.maxOpacity * x_contribution * y_contribution;
   }
 
   created() {

@@ -1,7 +1,7 @@
 <template>
   <div>
   <div
-    class="headerAndFooter header"
+    class=" slickFont headerAndFooter header"
     :class="{ headerAndFooterYmargined: page === 'Home' }"
   >
     <div class="headerBlock headerLeft btn" @click="page = 'Home'">
@@ -41,6 +41,7 @@
 <!--  >-->
 
 <!--  </div>-->
+
     <CV></CV>
   </div>
 </template>
@@ -65,6 +66,9 @@ export default class App extends Vue {
 :root {
   --maxwidth: 1500px;
   --maxheight: 1066px;
+  //--cardColor: #e5fcc2;
+  --cardColor: rgba(255,255,185,0.9);
+  --highlightColor: #b8deaa;
 }
 
 body {
@@ -97,10 +101,13 @@ a {
   cursor: pointer;
 }
 
-.headerAndFooter {
-  position: absolute;
+.slickFont {
   font-family: Hendrickson, PalmSprings, MoonGlade, PixoReto, Roboto, Lato,
   Arial, serif;
+}
+
+.headerAndFooter {
+  position: absolute;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -188,4 +195,6 @@ a {
   font-family: Hendrickson;
   src: local("Hendrickson"), url("assets/fonts/hendrick/Hendrickson-K7GOD.otf");
 }
+
+
 </style>
