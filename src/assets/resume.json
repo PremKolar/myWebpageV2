@@ -40,6 +40,15 @@
       "technologies": ["Typescript", "JS", "Vue", "Html", "CSS", "Lisp", "Vuex", "NodeJS"]
     },
     {
+      "company": "Lufthansa Industry Solutions",
+      "position": "IT Consultant",
+      "website": "https://www.lufthansa-industry-solutions.com",
+      "startDate": "2022-01",
+      "endDate": "2030-01",
+      "summary": "Conception/Design/Implementation of Fleet-Management-Software.",
+      "technologies": ["Matlab"]
+    },
+    {
       "company": "KLIWAS, Max-Planck-Institut",
       "position": "Research Assistant",
       "website": "https://www.kliwas.de/KLIWAS/EN/01_About_Kliwas/about_kliwas_node.html",
@@ -139,7 +148,8 @@
       "minor": "Physics",
       "startDate": "2014",
       "endDate": "2019",
-      "grade": "not finished"
+      "grade": "not finished",
+      "technologies": ["Java", "SQL"]
     },
     {
       "institution": "University of Hawai’i at Manoa",
@@ -238,7 +248,7 @@
       "name": "Many of their courses!",
       "startDate": "2020-08",
       "endDate": "2020-12",
-      "technologies": ["JS","Typescript","CSS","Html","Http","Vuex","Nuxt"],
+      "technologies": ["JS","Typescript","CSS","Html","Vuex"],
       "link": "https://frontendmasters.com/courses/",
       "platform": "Frontend Masters"
     },    

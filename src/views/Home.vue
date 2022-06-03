@@ -34,7 +34,8 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import HelloWorld from "@/components/HelloWorld.vue";
+import { Watch } from "vue-property-decorator"; // @ is an alias to /src
 
 @Options({
   components: {
@@ -47,6 +48,12 @@ export default class Home extends Vue {
   private opacity = 0;
   private maxOpacity = 0.5;
   private opacityMobile = 0.3;
+
+  // @Watch('opacity')
+  // watchOpacity(oldOpa:number,newOpa:number){
+  //   console.log(newOpa);
+  //   this.$emit('newOpacity',newOpa);
+  // }
 
   get mobile(): boolean {
     return this.windowWidth < 1000;
